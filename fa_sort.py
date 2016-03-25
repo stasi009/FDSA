@@ -19,6 +19,7 @@ def bubble_sort(a,comparer=lambda x1,x2:x1 - x2):
 def insert_sort(a,comparer=lambda x1,x2 : x1 - x2):
     N = len(a)
     for unsorted_index in xrange(1,N):
+        # need to copy to variable, since a[unsorted_index] will be overwritten soon
         element_to_sort = a[unsorted_index]
 
         sorting_index = unsorted_index - 1
