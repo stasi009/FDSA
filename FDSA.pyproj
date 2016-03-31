@@ -22,7 +22,13 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="check_anagram.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="count_sort.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="pair_sum.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="quick_sort.py">
