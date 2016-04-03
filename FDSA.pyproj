@@ -28,6 +28,9 @@
     <Compile Include="count_sort.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="merge_sort.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="pair_sum.py">
       <SubType>Code</SubType>
     </Compile>
