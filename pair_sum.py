@@ -1,3 +1,7 @@
+﻿
+"""
+find all binary pairs (v1,v2) which v1+v2=certain value
+"""
 
 def decrease_del(counts,v):
     newcount = counts[v]-1

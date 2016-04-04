@@ -1,3 +1,7 @@
+﻿
+"""
+Find next greater number with same set of digits
+"""
 
 def swap(ar,i,j):
     temp = ar[i]
