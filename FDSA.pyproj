@@ -25,10 +25,16 @@
     <Compile Include="check_anagram.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="convert_int2str_anybase.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="count_inversion.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="count_sort.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="hanoi_tower.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="merge_sort.py">
