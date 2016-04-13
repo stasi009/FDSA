@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>f0006b9b-7eb3-4641-83f2-537c60731ae7</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>count_sort.py</StartupFile>
+    <StartupFile>other.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,6 +22,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="all_permutations.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="binary_search_ext.py">
       <SubType>Code</SubType>
     </Compile>

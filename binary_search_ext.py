@@ -1,4 +1,4 @@
-
+﻿
 def rotate(arr,pivot):
     return arr[pivot:]+arr[:pivot]
 
@@ -51,12 +51,59 @@ def binary_search_rotated(arr,x):
 
     if x == arr[pivot]:
         return pivot
-
-    index = __binary_search(arr,0,pivot-1,x)
-    if index >=0:
-        return index
-    else:
+    
+    assert x > arr[pivot]#pivot is the smallest
+    if x <= arr[len(arr)-1]:
         return __binary_search(arr,pivot+1,len(arr)-1,x)
+    else:
+        return __binary_search(arr,0,pivot-1,x)    
+
+def binsearch_ignore_unwanted(arr,unwanted,x):
+    low = 0
+    high = len(arr)-1
+
+    while low <= high:
+        while arr[high] == unwanted and high>=low:
+            high -=1
+        if high < low:
+            return -1# this whole block is invalid
+
+        middle = (low+high)//2
+        while arr[middle] == unwanted:
+            middle +=1 # since we have exluce "all invalid" case, middle will always find one
+
+        if arr[middle] == x:
+            return middle
+        elif x < arr[middle]:
+            high = middle-1
+        else:# x> arr[middle]
+            low = middle+1 
+
+    return -1# indicates not found
+
+def __binsearch_rotate(arr,low,high,x):
+    if low > high:
+        return -1
+
+    middle = (low+high)//2
+    if arr[middle] == x:
+        return middle
+
+    if arr[middle] >= arr[low]:# left subarray is sorted
+        if x >= arr[low] and x < arr[middle]:# in left sorted subarray
+            return __binary_search(arr,low,middle-1,x)
+        else:
+            return __binsearch_rotate(arr,middle+1,high,x)
+    else:
+        # right subarray is sorted
+        assert arr[middle] < arr[len(arr)-1]
+        if x > arr[middle] and x <= arr[high]:# in right sorted subarray
+            return __binary_search(arr,middle+1,high,x)
+        else:
+            return __binsearch_rotate(arr,low,middle-1,x)
+
+def binsearch_rotate2(arr,x):
+    return __binsearch_rotate(arr,0,len(arr)-1,x)
 
 ################################ test
 def test_normal_binsearch():
@@ -85,9 +132,34 @@ def test_binsearch_rotated():
     else:
         print "not exist"
 
+def test_binsearch_rotated2():
+    pivot = 6
+    rotated = rotate(range(30),pivot)
+
+    x = 24
+    index = binsearch_rotate2(rotated,x)
+    if index >=0:
+        assert rotated[index] == x
+        print "find array[%d]=%d"%(index,rotated[index])
+    else:
+        print "not exist"
+
+def test_binsearch_ignore_invalid():
+    arr = ["at", "", "", "", "ball", "", "", "car", "", "", "dad", "", ""]
+
+    x = "ball"
+    index = binsearch_ignore_unwanted(arr,"",x)
+
+    if index >=0:
+        assert arr[index] == x
+        print "find array[%d]=%s"%(index,arr[index])
+    else:
+        print "not exist"
 
 if __name__ == "__main__":
-    test_binsearch_rotated()
+    # test_binsearch_rotated()
+    test_binsearch_rotated2()
+    # test_binsearch_ignore_invalid()
 
 
 
