@@ -1,4 +1,8 @@
-﻿
+
+"""
+Given an unsorted array of non-negative integers, find the first continous subarray which adds to a given number.
+"""
+
 def subarray_sum_k(arr,k):
     low = 0
     while arr[low] > k and low < len(arr):
@@ -37,6 +41,8 @@ def test(line,k):
     else:
         temp = (str(e) for e in arr[low:high+1])
         print "%s=%d"%("+".join(temp),k)
+
+test("3 4 7 9 1",7)
 
 test("135 101 170 125 79 159 163 65 106 146 82 28 162 92 196 143 28 37 192 5 103 154 93 183 22 117 119 96 48 127 172 139 70 113 68 100 36 95 104 12 123 134  ",468)
 
